@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Alexandre Machado Imóveis · Patrimóvel</title>
+<meta name="description" content="Entre em contato com Alexandre Machado, corretor de imóveis de alto padrão no Rio de Janeiro. Barra da Tijuca, Tijuca e Zona Sul.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-name">Alexandre Machado</span>
+      <span class="logo-sub">Patrimóvel</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="imoveis.html">Imóveis</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html" class="active">Contato</a></li>
+      <li><a href="https://wa.me/5521970327148" class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div id="mobile-menu">
+  <ul>
+    <li><a href="imoveis.html">Imóveis</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="https://wa.me/5521970327148" target="_blank" rel="noopener">WhatsApp</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="padding-bottom: 60px;">
+  <div class="container">
+    <span class="section-label">Fale Conosco</span>
+    <h1 class="section-title" style="font-size: clamp(2.5rem,5vw,4rem);">Entre em <em>contato</em></h1>
+    <p style="color: var(--text-muted); font-size: 15px; margin-top: 12px; max-width: 500px; line-height: 1.7;">Seja para buscar um imóvel, colocar um imóvel à venda ou apenas tirar dúvidas — estou disponível para conversar.</p>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<section class="contact-page">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- INFO -->
+      <div class="contact-info">
+        <h2>Alexandre<br><em style="font-style: italic; color: var(--gold-light);">Machado</em></h2>
+        <p>Corretor de imóveis de alto padrão há mais de 10 anos. Respondo mensagens pessoalmente — sem assistentes, sem demora.</p>
+
+        <div class="contact-channels">
+          <div class="channel-item">
+            <span class="channel-label">WhatsApp — resposta em até 2h</span>
+            <span class="channel-value">
+              <a href="https://wa.me/5521970327148" target="_blank" rel="noopener">+55 21 97032-7148</a>
+            </span>
+          </div>
+          <div class="channel-item">
+            <span class="channel-label">Instagram</span>
+            <span class="channel-value">
+              <a href="https://www.instagram.com/alexandre.machado.imoveis/" target="_blank" rel="noopener">@alexandre.machado.imoveis</a>
+            </span>
+          </div>
+          <div class="channel-item">
+            <span class="channel-label">Imobiliária</span>
+            <span class="channel-value">Patrimóvel</span>
+          </div>
+          <div class="channel-item">
+            <span class="channel-label">Regiões de Atuação</span>
+            <span class="channel-value" style="font-size: .95rem; color: var(--text-muted);">Barra da Tijuca · Tijuca · Zona Sul</span>
+          </div>
+          <div class="channel-item" style="border-bottom: none;">
+            <span class="channel-label">Horário de Atendimento</span>
+            <span class="channel-value" style="font-size: .95rem; color: var(--text-muted);">Seg–Sex 9h–20h · Sáb 9h–17h</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 48px;">
+          <a href="https://wa.me/5521970327148?text=Ol%C3%A1%20Alexandre!%20Gostaria%20de%20conversar%20sobre%20im%C3%B3veis." class="btn btn-primary" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chamar no WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="contact-form-wrap">
+        <h3>Envie uma mensagem</h3>
+        <p class="sub">Preencha o formulário e entro em contato em até 2 horas.</p>
+        <form class="full-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="c-nome">Nome</label>
+              <input type="text" id="c-nome" name="nome" placeholder="Seu nome" required>
+            </div>
+            <div class="form-field">
+              <label for="c-tel">WhatsApp</label>
+              <input type="tel" id="c-tel" name="telefone" placeholder="(21) 9 0000-0000" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="c-tipo">O que você procura?</label>
+            <select id="c-tipo" name="tipo" class="filter-select" style="width:100%; padding: 12px 16px;">
+              <option value="comprar">Quero comprar um imóvel</option>
+              <option value="alugar">Quero alugar um imóvel</option>
+              <option value="vender">Quero vender meu imóvel</option>
+              <option value="investir">Quero investir em imóvel</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="c-regiao">Região de interesse</label>
+            <select id="c-regiao" name="regiao" class="filter-select" style="width:100%; padding: 12px 16px;">
+              <option value="qualquer">Qualquer região</option>
+              <option value="barra">Barra da Tijuca</option>
+              <option value="zona-sul">Zona Sul (Ipanema, Leblon, Copacabana)</option>
+              <option value="tijuca">Tijuca e adjacências</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="c-msg">Mensagem</label>
+            <textarea id="c-msg" name="interesse" rows="4" placeholder="Descreva o que você está buscando — tamanho, quartos, orçamento, urgência..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar Mensagem via WhatsApp</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="logo-name">Alexandre Machado</p>
+        <p class="logo-sub">Patrimóvel</p>
+        <p class="footer-desc">Especialista em imóveis de alto padrão na Barra da Tijuca, Tijuca e Zona Sul do Rio de Janeiro.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="imoveis.html">Imóveis</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Regiões</h4>
+        <ul>
+          <li><a href="imoveis.html?regiao=barra">Barra da Tijuca</a></li>
+          <li><a href="imoveis.html?regiao=zona-sul">Zona Sul</a></li>
+          <li><a href="imoveis.html?regiao=tijuca">Tijuca</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5521970327148" target="_blank" rel="noopener">+55 21 97032-7148</a>
+        <a href="https://www.instagram.com/alexandre.machado.imoveis/" target="_blank" rel="noopener">@alexandre.machado.imoveis</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Alexandre Machado Imóveis · CRECI-RJ</p>
+      <p>Desenvolvido por <a href="https://www.instagram.com/jonasguvito/" target="_blank" rel="noopener">Avestra</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

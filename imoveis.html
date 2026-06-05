@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imóveis — Alexandre Machado · Patrimóvel</title>
+<meta name="description" content="Veja nossa seleção de imóveis de alto padrão na Barra da Tijuca, Tijuca e Zona Sul do Rio de Janeiro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-name">Alexandre Machado</span>
+      <span class="logo-sub">Patrimóvel</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="imoveis.html" class="active">Imóveis</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="https://wa.me/5521970327148" class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div id="mobile-menu">
+  <ul>
+    <li><a href="imoveis.html">Imóveis</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="https://wa.me/5521970327148" target="_blank" rel="noopener">WhatsApp</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label">Portfólio</span>
+    <h1 class="section-title" style="font-size: clamp(2.5rem,5vw,4rem);">Nossos <em>Imóveis</em></h1>
+    <p style="color: var(--text-muted); font-size: 14px; letter-spacing: .05em; margin-top: 8px;">Barra da Tijuca · Tijuca · Zona Sul</p>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <div class="filters-inner">
+    <select class="filter-select" id="filter-tipo" aria-label="Filtrar por tipo">
+      <option value="">Tipo: Todos</option>
+      <option value="apartamento">Apartamento</option>
+      <option value="cobertura">Cobertura</option>
+      <option value="casa">Casa</option>
+      <option value="penthouse">Penthouse</option>
+    </select>
+    <select class="filter-select" id="filter-regiao" aria-label="Filtrar por região">
+      <option value="">Região: Todas</option>
+      <option value="barra">Barra da Tijuca</option>
+      <option value="zona-sul">Zona Sul</option>
+      <option value="tijuca">Tijuca</option>
+    </select>
+    <select class="filter-select" id="filter-negocio" aria-label="Filtrar por tipo de negócio">
+      <option value="">Negócio: Todos</option>
+      <option value="venda">Venda</option>
+      <option value="locacao">Locação</option>
+    </select>
+    <select class="filter-select" id="filter-quartos" aria-label="Filtrar por quartos">
+      <option value="">Quartos: Todos</option>
+      <option value="2">2 quartos</option>
+      <option value="3">3 quartos</option>
+      <option value="4">4+ quartos</option>
+    </select>
+    <span class="filter-count" id="filter-count">6 imóveis</span>
+  </div>
+</div>
+
+<!-- LISTINGS -->
+<section class="listings-section">
+  <div class="container">
+    <div class="properties-grid-2" id="listings-grid">
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop" alt="Cobertura Duplex Peninsula" loading="lazy">
+          <span class="property-badge">Venda</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Cobertura Duplex</span>
+            <span class="property-region">Barra da Tijuca</span>
+          </div>
+          <h3 class="property-name">Peninsula — Cobertura com Piscina</h3>
+          <p class="property-price">R$ 4.800.000</p>
+          <div class="property-specs">
+            <span>4 quartos</span><span>5 banheiros</span><span>320 m²</span><span>3 vagas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80&auto=format&fit=crop" alt="Apartamento Vista Mar Ipanema" loading="lazy">
+          <span class="property-badge">Venda</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Apartamento</span>
+            <span class="property-region">Ipanema</span>
+          </div>
+          <h3 class="property-name">Ipanema — Vista Mar Integral</h3>
+          <p class="property-price">R$ 3.200.000</p>
+          <div class="property-specs">
+            <span>3 quartos</span><span>3 banheiros</span><span>180 m²</span><span>2 vagas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&auto=format&fit=crop" alt="Apartamento Tijuca Terraço" loading="lazy">
+          <span class="property-badge">Locação</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Apartamento</span>
+            <span class="property-region">Tijuca</span>
+          </div>
+          <h3 class="property-name">Alto da Boa Vista — Terraço Privativo</h3>
+          <p class="property-price">R$ 12.000 <span class="price-period">/mês</span></p>
+          <div class="property-specs">
+            <span>3 quartos</span><span>2 banheiros</span><span>140 m²</span><span>2 vagas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80&auto=format&fit=crop" alt="Penthouse Leblon" loading="lazy">
+          <span class="property-badge">Venda</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Penthouse</span>
+            <span class="property-region">Leblon</span>
+          </div>
+          <h3 class="property-name">Leblon — Penthouse 360°</h3>
+          <p class="property-price">R$ 8.500.000</p>
+          <div class="property-specs">
+            <span>5 quartos</span><span>6 banheiros</span><span>480 m²</span><span>4 vagas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&auto=format&fit=crop" alt="Casa em Condomínio Barra da Tijuca" loading="lazy">
+          <span class="property-badge">Venda</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Casa em Condomínio</span>
+            <span class="property-region">Barra da Tijuca</span>
+          </div>
+          <h3 class="property-name">Alphaville Barra — Casa Club</h3>
+          <p class="property-price">R$ 2.750.000</p>
+          <div class="property-specs">
+            <span>4 quartos</span><span>4 banheiros</span><span>280 m²</span><span>3 vagas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80&auto=format&fit=crop" alt="Apartamento Copacabana" loading="lazy">
+          <span class="property-badge">Locação</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Apartamento</span>
+            <span class="property-region">Copacabana</span>
+          </div>
+          <h3 class="property-name">Copacabana — Frente Para o Mar</h3>
+          <p class="property-price">R$ 18.000 <span class="price-period">/mês</span></p>
+          <div class="property-specs">
+            <span>4 quartos</span><span>3 banheiros</span><span>200 m²</span><span>2 vagas</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner" style="padding: 100px 0;">
+  <div class="cta-banner-bg">
+    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1920&q=80&auto=format&fit=crop" alt="" aria-hidden="true">
+    <div class="cta-banner-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="cta-banner-content">
+      <span class="section-label">Não encontrou o que procura?</span>
+      <h2 class="section-title">Temos imóveis<br><em>fora do portfólio</em></h2>
+      <p>Muitos dos melhores imóveis não são divulgados publicamente. Fale conosco e receba uma seleção personalizada.</p>
+      <a href="https://wa.me/5521970327148?text=Ol%C3%A1%20Alexandre!%20Quero%20receber%20uma%20sele%C3%A7%C3%A3o%20personalizada%20de%20im%C3%B3veis." class="btn btn-primary" target="_blank" rel="noopener">Solicitar Seleção Exclusiva</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="logo-name">Alexandre Machado</p>
+        <p class="logo-sub">Patrimóvel</p>
+        <p class="footer-desc">Especialista em imóveis de alto padrão na Barra da Tijuca, Tijuca e Zona Sul do Rio de Janeiro.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="imoveis.html">Imóveis</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Regiões</h4>
+        <ul>
+          <li><a href="imoveis.html?regiao=barra">Barra da Tijuca</a></li>
+          <li><a href="imoveis.html?regiao=zona-sul">Zona Sul</a></li>
+          <li><a href="imoveis.html?regiao=tijuca">Tijuca</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5521970327148" target="_blank" rel="noopener">+55 21 97032-7148</a>
+        <a href="https://www.instagram.com/alexandre.machado.imoveis/" target="_blank" rel="noopener">@alexandre.machado.imoveis</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Alexandre Machado Imóveis · CRECI-RJ</p>
+      <p>Desenvolvido por <a href="https://www.instagram.com/jonasguvito/" target="_blank" rel="noopener">Avestra</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

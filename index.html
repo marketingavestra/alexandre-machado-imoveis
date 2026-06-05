@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexandre Machado Imóveis — Alto Padrão Rio de Janeiro</title>
+<meta name="description" content="Corretor especializado em imóveis de alto padrão na Barra da Tijuca, Tijuca e Zona Sul. Patrimóvel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-name">Alexandre Machado</span>
+      <span class="logo-sub">Patrimóvel</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="imoveis.html">Imóveis</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="https://wa.me/5521970327148" class="nav-cta" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div id="mobile-menu" role="dialog" aria-label="Menu de navegação">
+  <ul>
+    <li><a href="imoveis.html">Imóveis</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="https://wa.me/5521970327148" target="_blank" rel="noopener">WhatsApp</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=85&auto=format&fit=crop" alt="Imóvel de alto padrão" class="hero-img">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-label">Patrimóvel · Rio de Janeiro</p>
+    <h1 class="hero-title">Imóveis de<br><em>Alto Padrão</em></h1>
+    <p class="hero-sub">Barra da Tijuca &nbsp;·&nbsp; Tijuca &nbsp;·&nbsp; Zona Sul</p>
+    <div class="hero-cta">
+      <a href="imoveis.html" class="btn btn-primary">Ver Imóveis</a>
+      <a href="https://wa.me/5521970327148" class="btn btn-ghost" target="_blank" rel="noopener">Fale Conosco</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="scroll-line"></span>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- FEATURED PROPERTIES -->
+<section class="featured" id="featured">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Seleção</span>
+      <h2 class="section-title">Imóveis em Destaque</h2>
+      <a href="imoveis.html" class="section-link">Ver todos <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="properties-grid">
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop" alt="Cobertura Duplex Peninsula — Barra da Tijuca" loading="lazy">
+          <span class="property-badge">Venda</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Cobertura Duplex</span>
+            <span class="property-region">Barra da Tijuca</span>
+          </div>
+          <h3 class="property-name">Peninsula — Cobertura com Piscina</h3>
+          <p class="property-price">R$ 4.800.000</p>
+          <div class="property-specs">
+            <span>4 quartos</span>
+            <span>5 banheiros</span>
+            <span>320 m²</span>
+            <span>3 vagas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80&auto=format&fit=crop" alt="Apartamento com Vista Mar — Ipanema" loading="lazy">
+          <span class="property-badge">Venda</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Apartamento</span>
+            <span class="property-region">Ipanema</span>
+          </div>
+          <h3 class="property-name">Ipanema — Vista Mar Integral</h3>
+          <p class="property-price">R$ 3.200.000</p>
+          <div class="property-specs">
+            <span>3 quartos</span>
+            <span>3 banheiros</span>
+            <span>180 m²</span>
+            <span>2 vagas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="property-card">
+        <a href="imovel.html" class="property-img-wrap">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&auto=format&fit=crop" alt="Apartamento Alto da Boa Vista — Tijuca" loading="lazy">
+          <span class="property-badge">Locação</span>
+        </a>
+        <div class="property-info">
+          <div class="property-meta">
+            <span class="property-type">Apartamento</span>
+            <span class="property-region">Tijuca</span>
+          </div>
+          <h3 class="property-name">Alto da Boa Vista — Terraço Privativo</h3>
+          <p class="property-price">R$ 12.000 <span class="price-period">/mês</span></p>
+          <div class="property-specs">
+            <span>3 quartos</span>
+            <span>2 banheiros</span>
+            <span>140 m²</span>
+            <span>2 vagas</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-image">
+      <img src="652772411_18401107486198690_993736391944059676_n.jpg" alt="Alexandre Machado — Corretor de Imóveis de Alto Padrão">
+      <div class="about-image-accent"></div>
+    </div>
+    <div class="about-content">
+      <span class="section-label">O Corretor</span>
+      <h2 class="section-title">Alexandre<br><em>Machado</em></h2>
+      <p class="about-text">Mais de uma década dedicada ao mercado imobiliário de alto padrão no Rio de Janeiro. Cada negociação vai além de comprar ou vender — é sobre encontrar o imóvel que reflete quem você é e onde quer chegar.</p>
+      <p class="about-text">Especializado nas regiões mais valorizadas da cidade: Barra da Tijuca, Tijuca e Zona Sul. Atendimento discreto, personalizado e focado em resultados reais para cada cliente.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Anos de mercado</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">200+</span>
+          <span class="stat-label">Imóveis negociados</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Regiões de atuação</span>
+        </div>
+      </div>
+      <a href="sobre.html" class="btn btn-outline">Conheça minha história</a>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONS -->
+<section class="regions">
+  <div class="container">
+    <div class="section-header center">
+      <span class="section-label">Onde Atuo</span>
+      <h2 class="section-title">Regiões de Atuação</h2>
+    </div>
+    <div class="regions-grid">
+
+      <div class="region-card">
+        <div class="region-img-wrap">
+          <img src="https://images.unsplash.com/photo-1619546952812-520e98064a52?w=600&q=80&auto=format&fit=crop" alt="Barra da Tijuca" loading="lazy">
+          <div class="region-overlay"></div>
+        </div>
+        <div class="region-info">
+          <h3>Barra da Tijuca</h3>
+          <p>Condomínios de luxo, coberturas e casas à beira-mar. A região de maior expansão imobiliária de alto padrão do Rio.</p>
+          <a href="imoveis.html?regiao=barra" class="region-link">Ver imóveis <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-img-wrap">
+          <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=600&q=80&auto=format&fit=crop" alt="Zona Sul Rio de Janeiro" loading="lazy">
+          <div class="region-overlay"></div>
+        </div>
+        <div class="region-info">
+          <h3>Zona Sul</h3>
+          <p>Ipanema, Leblon, Copacabana. Os endereços mais desejados da cidade, onde o metro quadrado é referência nacional.</p>
+          <a href="imoveis.html?regiao=zona-sul" class="region-link">Ver imóveis <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-img-wrap">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80&auto=format&fit=crop" alt="Tijuca Rio de Janeiro" loading="lazy">
+          <div class="region-overlay"></div>
+        </div>
+        <div class="region-info">
+          <h3>Tijuca</h3>
+          <p>Apartamentos amplos e casas em bairros nobres. Excelente custo-benefício com toda estrutura para uma vida de qualidade.</p>
+          <a href="imoveis.html?regiao=tijuca" class="region-link">Ver imóveis <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-bg">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80&auto=format&fit=crop" alt="" aria-hidden="true">
+    <div class="cta-banner-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="cta-banner-content">
+      <span class="section-label">Atendimento Exclusivo</span>
+      <h2 class="section-title">Pronto para encontrar<br><em>seu imóvel ideal?</em></h2>
+      <p>Atendimento personalizado para você encontrar o imóvel que combina com seu estilo de vida. Entre em contato agora.</p>
+      <a href="https://wa.me/5521970327148?text=Ol%C3%A1%20Alexandre!%20Gostaria%20de%20conhecer%20im%C3%B3veis%20de%20alto%20padr%C3%A3o." class="btn btn-primary" target="_blank" rel="noopener">Falar com Alexandre</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="logo-name">Alexandre Machado</p>
+        <p class="logo-sub">Patrimóvel</p>
+        <p class="footer-desc">Especialista em imóveis de alto padrão na Barra da Tijuca, Tijuca e Zona Sul do Rio de Janeiro.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="imoveis.html">Imóveis</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav">
+        <h4>Regiões</h4>
+        <ul>
+          <li><a href="imoveis.html?regiao=barra">Barra da Tijuca</a></li>
+          <li><a href="imoveis.html?regiao=zona-sul">Zona Sul</a></li>
+          <li><a href="imoveis.html?regiao=tijuca">Tijuca</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5521970327148" target="_blank" rel="noopener">+55 21 97032-7148</a>
+        <a href="https://www.instagram.com/alexandre.machado.imoveis/" target="_blank" rel="noopener">@alexandre.machado.imoveis</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Alexandre Machado Imóveis · CRECI-RJ</p>
+      <p>Desenvolvido por <a href="https://www.instagram.com/jonasguvito/" target="_blank" rel="noopener">Avestra</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
