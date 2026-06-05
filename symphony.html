@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Symphony Residences — A Nova Fronteira do Luxo Carioca</title>
+<meta name="description" content="Symphony Residences: o maior lançamento da Zona Sul em 30 anos. Apresentado por Alexandre Machado, Patrimóvel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#1B3928;--gl:#2A5040;--go:#C9A96E;--gol:#DFC090;
+  --t:#A85A40;--c:#F5EFE3;--cl:#FAF7F2;
+  --txt:#1C1A16;--muted:#6B6355;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'DM Sans',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html,body{height:100%;overflow:hidden;font-family:var(--fb);background:#111;}
+a{text-decoration:none;color:inherit;}
+
+/* ── TOP BAR ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:52px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;
+  background:rgba(27,57,40,.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(201,169,110,.2);
+}
+.tb-logo{display:flex;flex-direction:column;gap:1px;}
+.tb-logo .n{font-family:var(--fd);font-size:15px;color:var(--c);font-weight:400;line-height:1;}
+.tb-logo .s{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--go);line-height:1;}
+.tb-right{display:flex;align-items:center;gap:20px;}
+.tb-counter{font-family:var(--fd);font-size:14px;color:rgba(245,239,227,.5);}
+.tb-counter b{color:var(--c);font-size:16px;font-weight:400;}
+.tb-back{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,239,227,.5);transition:color .2s;}
+.tb-back:hover{color:var(--go);}
+
+/* ── ARROWS ── */
+.arr{
+  position:fixed;top:50%;transform:translateY(-50%);z-index:200;
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  background:rgba(27,57,40,.8);border:1px solid rgba(201,169,110,.3);
+  color:var(--c);cursor:pointer;transition:all .25s var(--ease);
+  border-radius:0;
+}
+.arr:hover{background:var(--g);border-color:var(--go);}
+.arr:disabled{opacity:.2;cursor:default;pointer-events:none;}
+.arr.p{left:14px;}.arr.n{right:14px;}
+.arr svg{width:15px;height:15px;flex-shrink:0;}
+
+/* ── DOTS ── */
+.dots{
+  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:200;
+  display:flex;gap:5px;align-items:center;
+}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(245,239,227,.3);cursor:pointer;transition:all .25s var(--ease);border:none;}
+.dot.on{background:var(--go);width:22px;border-radius:3px;}
+
+/* ── TRACK ── */
+.wrap{position:fixed;inset:0;overflow:hidden;}
+.track{display:flex;height:100%;transition:transform .52s var(--ease);will-change:transform;}
+.slide{min-width:100vw;height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.inner{min-height:100%;padding-top:52px;display:flex;flex-direction:column;}
+
+/* ── UTILS ── */
+.lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--go);margin-bottom:12px;display:block;}
+.lbl.dk{color:var(--muted);}
+.ttl{font-family:var(--fd);font-weight:400;line-height:1.15;}
+.ttl em{font-style:italic;}
+.pad{padding:60px 60px 80px;}
+
+/* ══════════════════════════════════
+   SLIDE 1 — HERO
+══════════════════════════════════ */
+.s1 .inner{padding-top:0;}
+.s1-img{position:relative;height:63vh;min-height:320px;overflow:hidden;flex-shrink:0;}
+.s1-img img{width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+.s1-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(27,57,40,.15),rgba(27,57,40,.55));}
+.s1-body{flex:1;background:var(--c);padding:40px 60px 72px;display:flex;flex-direction:column;justify-content:center;}
+.s1-body .lbl{color:var(--g);}
+.s1-h{font-family:var(--fd);font-size:clamp(2rem,5vw,3.6rem);font-weight:700;color:var(--txt);line-height:1.1;margin-bottom:10px;}
+.s1-sub{font-family:var(--fd);font-size:clamp(.9rem,2vw,1.2rem);color:var(--muted);font-style:italic;margin-bottom:22px;}
+.s1-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--g);color:var(--c);font-size:12px;font-weight:500;letter-spacing:.04em;}
+
+/* ══════════════════════════════════
+   SLIDE 2 — 5 PILARES
+══════════════════════════════════ */
+.s2 .inner{background:var(--cl);}
+.s2 .inner .pad{display:flex;flex-direction:column;height:100%;}
+.s2-h{font-family:var(--fd);font-size:clamp(1.5rem,3.5vw,2.5rem);color:var(--txt);margin-bottom:36px;max-width:440px;}
+.pgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;flex:1;}
+.pc{background:#fff;border:1px solid rgba(27,57,40,.1);padding:24px 18px;display:flex;flex-direction:column;gap:10px;position:relative;}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--go);}
+.pc.t::before{background:var(--t);}
+.pc-ico{width:38px;height:38px;border:1px solid var(--go);display:flex;align-items:center;justify-content:center;color:var(--go);}
+.pc.t .pc-ico{border-color:var(--t);color:var(--t);}
+.pc-ico svg{width:18px;height:18px;}
+.pc-name{font-family:var(--fd);font-size:1.1rem;font-weight:600;color:var(--txt);}
+.pc-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+
+/* ══════════════════════════════════
+   SLIDE 3 — O BOOM
+══════════════════════════════════ */
+.s3 .inner{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 52px);}
+.s3-l{background:var(--cl);padding:60px;display:flex;flex-direction:column;}
+.s3-h{font-family:var(--fd);font-size:clamp(1.5rem,3.5vw,2.8rem);color:var(--txt);margin-bottom:0;}
+.s3-h em{color:var(--t);}
+.s3-map{flex:1;margin-top:28px;background:linear-gradient(135deg,#2A6B4A 0%,#1B3928 40%,#A85A40 70%,#C9A96E 100%);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:180px;}
+.s3-map .ml{position:absolute;font-family:var(--fd);font-size:12px;color:rgba(245,239,227,.8);}
+.s3-map .ml.ip{bottom:25%;left:8%;}
+.s3-map .ml.fl{top:18%;right:12%;}
+.s3-map .arr-el{position:absolute;width:2px;background:rgba(201,169,110,.7);height:50%;bottom:28%;left:42%;transform:rotate(-45deg);transform-origin:bottom center;}
+.s3-r{background:var(--g);padding:60px;display:flex;flex-direction:column;justify-content:center;gap:20px;}
+.sb{background:rgba(245,239,227,.06);border:1px solid rgba(201,169,110,.22);padding:22px;}
+.sb-n{font-family:var(--fd);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;color:var(--go);line-height:1;margin-bottom:6px;}
+.sb-h{font-family:var(--fd);font-size:1rem;color:var(--c);margin-bottom:4px;}
+.sb-d{font-size:12.5px;color:rgba(245,239,227,.65);line-height:1.6;}
+
+/* ══════════════════════════════════
+   SLIDE 4 — MATEMÁTICA
+══════════════════════════════════ */
+.s4 .inner{background:var(--cl);}
+.s4-h{font-family:var(--fd);font-size:clamp(1.5rem,3.5vw,2.5rem);color:var(--txt);margin-bottom:36px;}
+table.ct{width:100%;border-collapse:collapse;}
+table.ct th{padding:14px 22px;font-family:var(--fd);font-size:1rem;font-weight:600;text-align:left;border-bottom:2px solid rgba(27,57,40,.15);}
+table.ct th.ca{background:rgba(27,57,40,.07);color:var(--g);border-bottom-color:var(--g);}
+table.ct td{padding:16px 22px;font-size:13.5px;color:var(--muted);border-bottom:1px solid rgba(27,57,40,.08);}
+table.ct td.rl{font-family:var(--fd);font-size:.95rem;font-weight:500;color:var(--txt);}
+table.ct td.ca{background:rgba(27,57,40,.04);font-weight:500;color:var(--g);}
+.tf{background:var(--t);color:#fff;padding:14px 22px;font-size:13px;font-weight:500;margin-top:8px;text-align:center;}
+
+/* ══════════════════════════════════
+   SLIDE 5 — SYMPHONY SPECS
+══════════════════════════════════ */
+.s5 .inner{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 52px);}
+.s5-img{position:relative;overflow:hidden;}
+.s5-img img{width:100%;height:100%;object-fit:cover;}
+.s5-body{background:var(--c);padding:56px 52px;display:flex;flex-direction:column;justify-content:center;}
+.s5-h{font-family:var(--fd);font-size:clamp(1.5rem,3vw,2.5rem);color:var(--txt);margin-bottom:4px;}
+.s5-sub{font-family:var(--fd);font-size:clamp(.9rem,2vw,1.2rem);font-style:italic;color:var(--t);margin-bottom:28px;}
+.spec-list{display:flex;flex-direction:column;gap:18px;}
+.sr{display:flex;gap:14px;align-items:flex-start;}
+.sr-ico{width:34px;height:34px;background:var(--g);color:var(--go);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sr-ico svg{width:15px;height:15px;}
+.sr-h{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:2px;}
+.sr-v{font-size:12.5px;color:var(--muted);}
+
+/* ══════════════════════════════════
+   SLIDE 6 — MESTRES
+══════════════════════════════════ */
+.s6 .inner{background:#fff;}
+.s6-h{font-family:var(--fd);font-size:clamp(1.8rem,4vw,3rem);color:var(--txt);text-align:center;margin-bottom:8px;}
+.s6-sub{font-family:var(--fd);font-size:1.1rem;font-style:italic;color:var(--muted);text-align:center;margin-bottom:48px;}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(27,57,40,.1);}
+.mc{background:#fff;padding:36px 32px;}
+.mc-lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(27,57,40,.1);}
+.mc-logo{font-family:var(--fd);font-size:1.6rem;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.mc-logo.t{color:var(--t);}
+.mc-name{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:6px;margin-top:14px;}
+.mc-desc{font-size:12.5px;color:var(--muted);line-height:1.7;}
+
+/* ══════════════════════════════════
+   SLIDE 7 — WELLNESS
+══════════════════════════════════ */
+.s7 .inner{background:var(--cl);}
+.s7-h{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.2rem);color:var(--txt);margin-bottom:4px;}
+.s7-sub{font-family:var(--fd);font-size:1rem;font-style:italic;color:var(--muted);margin-bottom:36px;}
+.whub{display:grid;grid-template-columns:1fr 100px 1fr;grid-template-rows:1fr 1fr;gap:20px;align-items:center;max-width:860px;}
+.whub .wc{background:#fff;border-left:3px solid var(--g);padding:18px;}
+.whub .wc.t{border-left-color:var(--t);}
+.wc-n{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:var(--txt);margin-bottom:6px;}
+.wc-d{font-size:12px;color:var(--muted);line-height:1.65;}
+.wc-hub{grid-column:2;grid-row:1/3;width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#4A2E1C,#2A1810);border:2px solid var(--go);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;}
+.wch-n{font-family:var(--fd);font-size:.7rem;font-weight:700;color:var(--go);line-height:1.2;}
+.wch-s{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,169,110,.6);margin-top:3px;}
+
+/* ══════════════════════════════════
+   SLIDE 8 — REFÚGIO SENSORIAL
+══════════════════════════════════ */
+.s8 .inner{background:var(--cl);}
+.s8-h{font-family:var(--fd);font-size:clamp(1.6rem,3.5vw,2.6rem);text-align:center;color:var(--txt);font-weight:400;padding:0 60px;margin-bottom:28px;}
+.s8-grid{display:grid;grid-template-columns:1fr 1fr;flex:1;}
+.s8-panel{position:relative;height:55vh;min-height:280px;overflow:hidden;}
+.s8-panel img{width:100%;height:100%;object-fit:cover;}
+.s8-label{position:absolute;bottom:0;left:0;right:0;padding:18px 22px;}
+.s8-label h3{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:#fff;margin-bottom:5px;}
+.s8-label p{font-size:12.5px;color:rgba(255,255,255,.82);line-height:1.5;}
+.s8-panel:first-child .s8-label{background:rgba(27,57,40,.85);}
+.s8-panel:last-child .s8-label{background:rgba(168,90,64,.85);}
+
+/* ══════════════════════════════════
+   SLIDE 9 — PATRIMÔNIO
+══════════════════════════════════ */
+.s9 .inner{padding-top:52px;position:relative;height:100%;}
+.s9-bg{position:absolute;inset:52px 0 0 0;}
+.s9-bg img{width:100%;height:100%;object-fit:cover;}
+.s9-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,57,40,.65),rgba(27,57,40,.2));}
+.s9-box{position:absolute;bottom:52px;left:52px;max-width:460px;background:rgba(245,239,227,.93);backdrop-filter:blur(8px);padding:28px 28px 28px 32px;border-left:4px solid var(--go);z-index:10;}
+.s9-box h2{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--txt);margin-bottom:10px;}
+.s9-box p{font-size:13.5px;color:var(--muted);line-height:1.75;}
+
+/* ══════════════════════════════════
+   SLIDE 10 — SÉC XIX & FUTURO
+══════════════════════════════════ */
+.s10 .inner{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;min-height:calc(100vh - 52px);}
+.s10-title{grid-column:1/-1;background:#fff;padding:36px 56px 0;}
+.s10-title h2{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.3rem);color:var(--txt);}
+.s10-l{background:var(--c);padding:28px 52px 56px;}
+.s10-l img{height:200px;width:100%;object-fit:cover;margin-bottom:18px;}
+.s10-l h3{font-family:var(--fd);font-size:1.2rem;color:var(--txt);margin-bottom:10px;}
+.s10-l p{font-size:13px;color:var(--muted);line-height:1.75;}
+.s10-r{background:#fff;padding:28px 52px 56px;}
+.s10-r h3{font-family:var(--fd);font-size:1.2rem;color:var(--txt);margin-bottom:18px;}
+.tl{display:flex;flex-direction:column;gap:14px;}
+.ti{display:flex;gap:12px;align-items:flex-start;}
+.ti-ico{width:30px;height:30px;background:var(--c);border:1px solid rgba(27,57,40,.15);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--g);}
+.ti-ico svg{width:13px;height:13px;}
+.ti-h{font-size:12.5px;font-weight:600;color:var(--txt);margin-bottom:2px;}
+.ti-d{font-size:12px;color:var(--muted);}
+
+/* ══════════════════════════════════
+   SLIDE 11 — SOLIDEZ
+══════════════════════════════════ */
+.s11 .inner{background:var(--cl);}
+.s11-h{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.2rem);color:var(--txt);margin-bottom:4px;}
+.s11-sub{font-family:var(--fd);font-size:1rem;font-style:italic;color:var(--muted);margin-bottom:36px;}
+.pyr{display:flex;flex-direction:column;gap:3px;max-width:680px;}
+.pt{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;align-items:center;padding:20px 32px;}
+.pt.p1{background:var(--g);color:var(--c);}
+.pt.p2{background:rgba(27,57,40,.1);}
+.pt.p3{background:var(--t);color:var(--c);}
+.pt-badge{font-size:9px;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin-bottom:3px;}
+.pt-entity{font-family:var(--fd);font-size:1.3rem;font-weight:700;line-height:1;}
+.pt-desc{font-size:12px;line-height:1.6;opacity:.85;}
+.p2 .pt-entity{color:var(--txt);}
+.p2 .pt-desc{color:var(--muted);opacity:1;}
+
+/* ══════════════════════════════════
+   SLIDE 12 — PREÇOS
+══════════════════════════════════ */
+.s12 .inner{background:#fff;}
+.s12-h{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.2rem);color:var(--txt);margin-bottom:32px;}
+.pgrid12{display:grid;grid-template-columns:1fr 1.8fr;gap:20px;}
+.ib{background:var(--c);border:1px solid rgba(27,57,40,.14);padding:28px;display:flex;flex-direction:column;gap:14px;}
+.ib h3{font-family:var(--fd);font-size:1.2rem;color:var(--txt);}
+.ib .ir{font-size:11.5px;color:var(--muted);}
+.ib .ip{font-family:var(--fd);font-size:1.6rem;font-weight:700;color:var(--g);}
+.ib .iy{background:var(--t);color:#fff;padding:14px;font-size:12.5px;line-height:1.5;}
+.ib .iy strong{font-family:var(--fd);font-size:1.05rem;}
+.tiers{display:flex;flex-direction:column;gap:2px;background:rgba(27,57,40,.1);}
+.tr-row{background:#fff;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:18px 22px;}
+.tr-n{width:30px;height:30px;background:var(--g);color:var(--go);font-family:var(--fd);font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.tr-i h4{font-family:var(--fd);font-size:1rem;color:var(--txt);margin-bottom:2px;}
+.tr-i p{font-size:11.5px;color:var(--muted);}
+.tr-p{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--g);text-align:right;white-space:nowrap;}
+.pfoot{grid-column:1/-1;background:var(--c);border-left:4px solid var(--go);padding:12px 18px;font-size:12.5px;color:var(--muted);margin-top:8px;}
+.pfoot strong{color:var(--txt);}
+
+/* ══════════════════════════════════
+   SLIDE 13 — SINFONIA
+══════════════════════════════════ */
+.s13 .inner{background:var(--cl);align-items:center;}
+.s13-h{font-family:var(--fd);font-size:clamp(1.4rem,3.5vw,2.6rem);color:var(--txt);text-align:center;margin-bottom:36px;}
+.con{position:relative;width:min(460px,76vw);height:min(460px,76vw);flex-shrink:0;}
+.cr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;}
+.cr4{width:100%;height:100%;background:rgba(27,57,40,.07);border:1px solid rgba(27,57,40,.14);}
+.cr3{width:80%;height:80%;background:rgba(27,57,40,.1);border:1px solid rgba(27,57,40,.2);}
+.cr2{width:58%;height:58%;background:var(--t);border:2px solid var(--t);}
+.cr1{width:37%;height:37%;background:linear-gradient(135deg,#4A2E1C,#2A1810);border:2px solid var(--go);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;}
+.cr1-n{font-family:var(--fd);font-size:.72rem;font-weight:700;color:var(--go);line-height:1.2;}
+.cr1-s{font-size:8px;color:rgba(201,169,110,.65);letter-spacing:.08em;margin-top:3px;}
+.ol{position:absolute;font-size:9.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;text-align:center;max-width:120px;line-height:1.4;}
+.ol b{display:block;color:var(--g);font-weight:600;}
+.ol-t{top:3%;left:50%;transform:translateX(-50%);}
+.ol-r{right:-2%;top:50%;transform:translateY(-50%);text-align:left;max-width:100px;}
+.ol-b{bottom:2%;left:50%;transform:translateX(-50%);}
+.ol-l{left:-2%;top:50%;transform:translateY(-50%);text-align:right;max-width:100px;}
+
+/* ══════════════════════════════════
+   SLIDE 14 — CTA
+══════════════════════════════════ */
+.s14 .inner{background:var(--g);align-items:center;justify-content:center;text-align:center;min-height:calc(100vh - 52px);padding:64px 48px;}
+.s14-t{font-family:var(--fd);font-size:clamp(2rem,5vw,3.8rem);font-weight:400;color:var(--go);margin-bottom:28px;max-width:800px;line-height:1.2;}
+.s14-b{font-family:var(--fd);font-size:clamp(.95rem,2vw,1.3rem);color:rgba(245,239,227,.82);max-width:680px;line-height:1.85;margin-bottom:44px;}
+.s14-cta{display:inline-flex;align-items:center;gap:10px;background:var(--go);color:var(--txt);padding:15px 38px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background .25s;margin-bottom:40px;}
+.s14-cta:hover{background:var(--gol);}
+.s14-contacts{display:flex;flex-direction:column;gap:6px;align-items:center;}
+.s14-contacts span{font-size:12.5px;color:rgba(245,239,227,.45);letter-spacing:.05em;}
+.s14-contacts a{font-size:14px;color:rgba(245,239,227,.75);transition:color .2s;}
+.s14-contacts a:hover{color:var(--go);}
+.s14-addr{position:absolute;bottom:24px;right:32px;font-size:11px;color:rgba(245,239,227,.3);}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media(max-width:768px){
+  .topbar{padding:0 16px;}
+  .arr{display:none;}
+  .s1-body{padding:28px 22px 60px;}
+  .s1-img{height:48vh;}
+  .pad{padding:20px 22px 64px;}
+  .s2 .pgrid{grid-template-columns:repeat(2,1fr);}
+  .s3 .inner{grid-template-columns:1fr;}
+  .s3-l,.s3-r{padding:28px 22px;}
+  .s3-map{min-height:160px;}
+  .s4 .inner .pad{padding:20px 16px 64px;}
+  table.ct th,table.ct td{padding:10px 12px;font-size:12px;}
+  .s5 .inner{grid-template-columns:1fr;}
+  .s5-img{height:38vh;}
+  .s5-body{padding:28px 22px 60px;}
+  .s6 .inner .pad{padding:20px 22px 64px;}
+  .mgrid{grid-template-columns:1fr;}
+  .s6-sub{margin-bottom:28px;}
+  .s7 .inner .pad{padding:20px 22px 64px;}
+  .whub{grid-template-columns:1fr;grid-template-rows:auto;}
+  .wc-hub{grid-column:1;grid-row:auto;margin:12px auto;}
+  .s8-h{padding:0 22px;font-size:1.4rem;}
+  .s8-grid{grid-template-columns:1fr;}
+  .s8-panel{height:38vh;}
+  .s9-box{left:16px;right:16px;max-width:none;bottom:28px;}
+  .s10 .inner{grid-template-columns:1fr;}
+  .s10-title{padding:28px 22px 0;}
+  .s10-l,.s10-r{padding:18px 22px 40px;}
+  .s11 .inner .pad{padding:20px 22px 64px;}
+  .pt{grid-template-columns:1fr;gap:8px;}
+  .s12 .inner .pad{padding:20px 22px 64px;}
+  .pgrid12{grid-template-columns:1fr;}
+  .s13 .inner{padding:20px 22px 64px;}
+  .s14 .inner{padding:44px 22px 60px;}
+  .s14-addr{position:static;margin-top:24px;font-size:10px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="tb-logo">
+    <span class="n">Alexandre Machado</span>
+    <span class="s">Symphony Residences</span>
+  </a>
+  <div class="tb-right">
+    <a href="index.html" class="tb-back">← Voltar ao site</a>
+    <div class="tb-counter"><b id="cur">1</b> / 14</div>
+  </div>
+</header>
+
+<button class="arr p" id="pb" onclick="go(-1)" aria-label="Anterior">
+  <svg viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<button class="arr n" id="nb" onclick="go(1)" aria-label="Próximo">
+  <svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<div class="dots" id="dots"></div>
+
+<div class="wrap">
+<div class="track" id="tr">
+
+<!-- ─── SLIDE 1 ─── -->
+<div class="slide s1">
+  <div class="inner">
+    <div class="s1-img">
+      <img src="https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=1920&q=85&auto=format&fit=crop" alt="Symphony Residences Flamengo">
+    </div>
+    <div class="s1-body">
+      <span class="lbl">Oportunidade · Patrimônio · Rentabilidade · Zona Sul</span>
+      <h1 class="s1-h">A Nova Fronteira<br>do Luxo Carioca</h1>
+      <p class="s1-sub">Symphony Residences — Apresentado por Alexandre Machado</p>
+      <span class="s1-badge">Pré-lançamento exclusivo · Flamengo, Rio de Janeiro</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 2 ─── -->
+<div class="slide s2">
+  <div class="inner pad">
+    <h2 class="s2-h">Os 5 Pilares de um<br>Ativo Irreplicável</h2>
+    <div class="pgrid">
+      <div class="pc">
+        <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <div class="pc-name">Oportunidade</div>
+        <div class="pc-desc">O movimento do capital para a Zona Sul B — o maior fenômeno imobiliário do Rio na última década.</div>
+      </div>
+      <div class="pc t">
+        <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M3.51 6.5l2.6 1.5M17.89 16l2.6 1.5M2 12h3M19 12h3M3.51 17.5l2.6-1.5M17.89 8l2.6-1.5"/></svg></div>
+        <div class="pc-name">Maestria</div>
+        <div class="pc-desc">Assinaturas das maiores grifes da arquitetura — RAF, Bassan, Studio Roca e Benedito Abbud.</div>
+      </div>
+      <div class="pc">
+        <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm0-14v4l3 3"/></svg></div>
+        <div class="pc-name">Legado</div>
+        <div class="pc-desc">Restauro do Casarão São Clemente (séc. XIX) integrado ao smart living do complexo.</div>
+      </div>
+      <div class="pc t">
+        <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="pc-name">Vitalidade</div>
+        <div class="pc-desc">Curadoria wellness com Bodytech e Chandra Spa — saúde, recuperação e bem-estar como amenidade.</div>
+      </div>
+      <div class="pc">
+        <div class="pc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M8 9V7a4 4 0 018 0v2"/></svg></div>
+        <div class="pc-name">Solidez</div>
+        <div class="pc-desc">Estrutura financeira garantida pelo BTG Pactual — o maior banco de investimentos da América Latina.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 3 ─── -->
+<div class="slide s3">
+  <div class="inner">
+    <div class="s3-l">
+      <span class="lbl dk">Contexto de Mercado</span>
+      <h2 class="s3-h">O Movimento do Capital:<br><em>O Boom da Zona Sul B</em></h2>
+      <div class="s3-map">
+        <div class="s3-map .arr-el"></div>
+        <span class="ml ip">Ipanema / Leblon</span>
+        <span class="ml fl">Flamengo · Catete</span>
+        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(245,239,227,.55);letter-spacing:.1em;text-transform:uppercase;">Movimento do Capital →</div>
+      </div>
+    </div>
+    <div class="s3-r">
+      <div class="sb">
+        <div class="sb-n">0</div>
+        <div class="sb-h">Escassez Absoluta</div>
+        <div class="sb-d">Praticamente impossível encontrar terrenos acima de 2.000m² em Ipanema e Leblon. O luxo tradicional saturou.</div>
+      </div>
+      <div class="sb">
+        <div class="sb-n">669%</div>
+        <div class="sb-h">Alta de Valorização</div>
+        <div class="sb-d">Alta na aceleração do valor por m² residencial em áreas adjacentes (Catete) nos últimos anos.</div>
+      </div>
+      <div class="sb">
+        <div class="sb-n">285</div>
+        <div class="sb-h">Liquidez Imediata</div>
+        <div class="sb-d">Novos apartamentos lançados no Flamengo nos últimos 2 anos com altíssima velocidade de absorção.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 4 ─── -->
+<div class="slide s4">
+  <div class="inner pad">
+    <h2 class="s4-h">A Matemática<br>da Escassez</h2>
+    <table class="ct">
+      <thead>
+        <tr>
+          <th></th>
+          <th>O Eixo Tradicional<br><small style="font-weight:300;font-size:.78rem;">(Leblon / Ipanema)</small></th>
+          <th class="ca">A Anomalia<br><small style="font-weight:400;font-size:.78rem;">(Terreno Bennett / Flamengo)</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rl">Disponibilidade de Terrenos</td>
+          <td>Praticamente zero para grandes complexos.</td>
+          <td class="ca">Um oásis raro de <strong>15.000m²</strong>.</td>
+        </tr>
+        <tr>
+          <td class="rl">Curva de Valorização</td>
+          <td>Saturada / Próxima ao teto histórico.</td>
+          <td class="ca">Agressiva e em franca ascensão estrutural.</td>
+        </tr>
+        <tr>
+          <td class="rl">Oferta de Lazer de Clube</td>
+          <td>Extremamente rara.</td>
+          <td class="ca">Quase <strong>2.000m²</strong> de parque privativo e amenidades.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tf">Oásis urbanos de 15.000m² não existem mais na Zona Sul. Esta é uma janela de entrada irrepetível.</div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 5 ─── -->
+<div class="slide s5">
+  <div class="inner">
+    <div class="s5-img">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=85&auto=format&fit=crop" alt="Symphony Residences — Torres Contemporâneas">
+    </div>
+    <div class="s5-body">
+      <span class="lbl dk">O Empreendimento</span>
+      <h2 class="s5-h">Symphony Residences</h2>
+      <p class="s5-sub">O Maior Lançamento da Zona Sul em 30 Anos</p>
+      <div class="spec-list">
+        <div class="sr">
+          <div class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg></div>
+          <div><div class="sr-h">Localização</div><div class="sr-v">Rua Marquês de Abrantes, 55 — Antigo Colégio Bennett, Flamengo</div></div>
+        </div>
+        <div class="sr">
+          <div class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
+          <div><div class="sr-h">Dimensão</div><div class="sr-v">15.000m² de terreno · 5.859m² área exclusiva Symphony</div></div>
+        </div>
+        <div class="sr">
+          <div class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div><div class="sr-h">Exclusividade</div><div class="sr-v">364 unidades em duas torres de arquitetura contemporânea</div></div>
+        </div>
+        <div class="sr">
+          <div class="sr-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3H9l-6 9 6 9h6l6-9-6-9z"/></svg></div>
+          <div><div class="sr-h">Tipologias</div><div class="sr-v">Studios 34m² · 2Q 62–77m² · 3Q 94–111m² · Coberturas até 194m²</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 6 ─── -->
+<div class="slide s6">
+  <div class="inner pad">
+    <h2 class="s6-h">Desenhado por Mestres.</h2>
+    <p class="s6-sub">Assinado pelo Tempo.</p>
+    <div class="mgrid">
+      <div class="mc">
+        <div class="mc-lbl">Arquitetura</div>
+        <div class="mc-logo">RAF</div>
+        <div class="mc-logo t" style="font-size:1.3rem;">BASSAN</div>
+        <div class="mc-name" style="margin-top:16px;">35 anos no mercado carioca</div>
+        <div class="mc-desc">Proposta que equilibra a solidez do passado com a fluidez do cenário contemporâneo — um diálogo entre épocas.</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">Interiores</div>
+        <div class="mc-logo" style="font-size:1.15rem;letter-spacing:.04em;">STUDIO ROCA</div>
+        <div class="mc-name" style="margin-top:16px;">Top 100 América Latina · AD100</div>
+        <div class="mc-desc">Espaços que equilibram estética sofisticada e o cotidiano real — cada ambiente projetado para ser vivido, não apenas admirado.</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">Paisagismo</div>
+        <div class="mc-logo" style="font-size:1rem;letter-spacing:.03em;">BENEDITO ABBUD</div>
+        <div class="mc-name" style="margin-top:16px;">Referência nacional em paisagismo</div>
+        <div class="mc-desc">Vegetação densa que funde interior e exterior, transformando o coração do Flamengo em um refúgio natural.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 7 ─── -->
+<div class="slide s7">
+  <div class="inner pad">
+    <h2 class="s7-h">O Conceito Wellness</h2>
+    <p class="s7-sub">Uma Curadoria de Grifes</p>
+    <div class="whub">
+      <div class="wc"><div class="wc-n">Patricia Vaks</div><div class="wc-d">Decoração temática cenográfica para o Salão de Festas, criando momentos inesquecíveis para os moradores.</div></div>
+      <div class="wc-hub"><div class="wch-n">SYMPHONY<br>LIFESTYLE</div></div>
+      <div class="wc t"><div class="wc-n">Bodytech</div><div class="wc-d">Consultoria para academia de alta performance e eficiência funcional com equipamentos de última geração.</div></div>
+      <div class="wc"><div class="wc-n">Animasom</div><div class="wc-d">Consultoria em brinquedotecas e espaços lúdicos premium para a família — lazer com curadoria.</div></div>
+      <div style="display:none"></div>
+      <div class="wc t"><div class="wc-n">Chandra Spa Consulting</div><div class="wc-d">Referência em wellness de luxo para resorts. Jornada sensorial completa do corpo à mente.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 8 ─── -->
+<div class="slide s8">
+  <div class="inner">
+    <h2 class="s8-h" style="padding-top:20px;">Um Refúgio Sensorial<br>e de Alta Performance</h2>
+    <div class="s8-grid" style="flex:1;">
+      <div class="s8-panel">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=85&auto=format&fit=crop" alt="Performance — Bodytech">
+        <div class="s8-label">
+          <h3>Performance</h3>
+          <p>Equipamentos de última geração e espaço desenhado para fluidez intuitiva sob a chancela Bodytech.</p>
+        </div>
+      </div>
+      <div class="s8-panel">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=85&auto=format&fit=crop" alt="Recuperação — Chandra Spa">
+        <div class="s8-label">
+          <h3>Recuperação</h3>
+          <p>Sauna, crioterapia, reflexologia, fisioterapia e hidromassagem. Spa internacional dentro de casa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 9 ─── -->
+<div class="slide s9">
+  <div class="inner">
+    <div class="s9-bg">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=85&auto=format&fit=crop" alt="Casarão São Clemente — Piscina">
+    </div>
+    <div class="s9-box">
+      <h2>Patrimônio: A História<br>Como Átrio Principal</h2>
+      <p>O imponente Casarão São Clemente, relíquia arquitetônica do século XIX, está sendo rigorosamente restaurado e integrado às áreas comuns. Não é preservação — é a ressignificação do tempo. Uma identidade que nenhum outro lançamento na Zona Sul pode replicar.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 10 ─── -->
+<div class="slide s10">
+  <div class="inner">
+    <div class="s10-title"><h2>O Encontro Exato Entre o Século XIX e o Futuro</h2></div>
+    <div class="s10-l">
+      <img src="https://images.unsplash.com/photo-1505843490578-27c6dd4e1c80?w=800&q=85&auto=format&fit=crop" alt="Charme Histórico">
+      <h3>O Charme Histórico — Valores Atemporais</h3>
+      <p>Integração viva com o Casarão, paisagismo monumental de Benedito Abbud e lobbies temáticos que evocam Mozart, Chopin e Beethoven.</p>
+    </div>
+    <div class="s10-r">
+      <h3>A Tecnologia de 2024 — Tecnologia Invisível</h3>
+      <div class="tl">
+        <div class="ti"><div class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1l3 5h6l-4.5 4 1.5 6L12 13l-6 3 1.5-6L3 6h6z"/></svg></div><div><div class="ti-h">Biometria & Reconhecimento Facial</div><div class="ti-d">Acessos 100% digitais e seguros.</div></div></div>
+        <div class="ti"><div class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 4v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="ti-h">Infraestrutura EV</div><div class="ti-d">Vagas preparadas para carros e bicicletas elétricas.</div></div></div>
+        <div class="ti"><div class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div><div><div class="ti-h">IoT & Sustentabilidade</div><div class="ti-d">Sensores inteligentes, reúso de água e App de gestão condominial.</div></div></div>
+        <div class="ti"><div class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8v4h8V3z"/></svg></div><div><div class="ti-h">Conveniência Smart</div><div class="ti-d">Coworking integrado, Fast Market e hub de delivery.</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 11 ─── -->
+<div class="slide s11">
+  <div class="inner pad">
+    <span class="lbl dk">Garantia Institucional</span>
+    <h2 class="s11-h">Solidez Institucional:<br>O Endosso de Gigantes</h2>
+    <p class="s11-sub">Três camadas de proteção para o seu capital</p>
+    <div class="pyr">
+      <div class="pt p1">
+        <div><div class="pt-badge">A Garantia</div><div class="pt-entity">Segurança Jurídica Absoluta</div></div>
+        <div class="pt-desc">Garantia matemática e jurídica na execução do terreno mais disputado da Zona Sul, blindando totalmente o capital do investidor.</div>
+      </div>
+      <div class="pt p2">
+        <div><div class="pt-badge" style="color:var(--muted)">A Execução</div><div class="pt-entity">Newview &amp; TGB Imóveis</div></div>
+        <div class="pt-desc">Mais de 15.000 unidades construídas e R$ 10 bilhões em VGV no mercado carioca.</div>
+      </div>
+      <div class="pt p3">
+        <div><div class="pt-badge">O Capital</div><div class="pt-entity">BTG Pactual</div></div>
+        <div class="pt-desc">O maior banco de investimentos da América Latina, suportando VGV estimado de R$ 500 milhões.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 12 ─── -->
+<div class="slide s12">
+  <div class="inner pad">
+    <h2 class="s12-h">Liquidez e Rentabilidade<br>Desenhadas em Planta</h2>
+    <div class="pgrid12">
+      <div class="ib">
+        <h3>Investment Tier</h3>
+        <div class="ir">Alta Demanda &amp; Short-Stay · Studios 34–43m²</div>
+        <div class="ip">A partir de R$ 890.000</div>
+        <div class="iy">Rentabilidade anual estimada<br><strong>6% a 8,7%</strong> projetada</div>
+      </div>
+      <div>
+        <div class="tiers">
+          <div class="tr-row"><div class="tr-n">1</div><div class="tr-i"><h4>2 Quartos · 62–77m²</h4><p>1 Vaga · Family &amp; Up-Size</p></div><div class="tr-p">A partir de<br>R$ 1.580.000</div></div>
+          <div class="tr-row"><div class="tr-n">2</div><div class="tr-i"><h4>3 Quartos · 94–111m²</h4><p>2 Vagas · Patrimônio e Conforto</p></div><div class="tr-p">A partir de<br>R$ 2.080.000</div></div>
+          <div class="tr-row"><div class="tr-n">3</div><div class="tr-i"><h4>Coberturas Duplex · 135–194m²</h4><p>Terraços Privativos · Exclusividade</p></div><div class="tr-p">Valores sob<br>consulta</div></div>
+        </div>
+        <div class="pfoot"><strong>Fluxo inteligente:</strong> parcelamento direto durante obras + financiamento apenas no pós-chaves (2029).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 13 ─── -->
+<div class="slide s13">
+  <div class="inner pad">
+    <h2 class="s13-h">A Sinfonia Perfeita<br>Entre Viver e Investir</h2>
+    <div class="con">
+      <div class="cr cr4"></div>
+      <div class="cr cr3"></div>
+      <div class="cr cr2"></div>
+      <div class="cr cr1"><div class="cr1-n">O Investidor</div><div class="cr1-s">Proteção &amp; Lifestyle</div></div>
+      <span class="ol ol-t"><b>A Fortaleza</b>BTG Pactual &amp; Newview</span>
+      <span class="ol ol-r"><b>Escassez</b>Flamengo · Casarão</span>
+      <span class="ol ol-b"><b>Maestria</b>RAF · Roca · Abbud</span>
+      <span class="ol ol-l"><b>Vitalidade</b>Bodytech · Chandra</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SLIDE 14 ─── -->
+<div class="slide s14">
+  <div class="inner" style="position:relative;">
+    <span class="lbl" style="color:var(--go);margin-bottom:16px;">Acesso Exclusivo · Pré-lançamento</span>
+    <h2 class="s14-t">Visão Patrimonial<br>e Acesso Exclusivo</h2>
+    <p class="s14-b">Navegar em oportunidades deste calibre exige inteligência de mercado, acesso prioritário a tabelas de pré-lançamento e seleção cirúrgica das melhores plantas. Agende uma experiência privada e acesse o book completo.</p>
+    <a href="https://wa.me/5521970327148?text=Ol%C3%A1%20Alexandre!%20Vi%20a%20apresenta%C3%A7%C3%A3o%20do%20Symphony%20Residences%20e%20quero%20agendar%20uma%20experi%C3%AAncia%20privada." class="s14-cta" target="_blank" rel="noopener">Agendar Experiência Privada</a>
+    <div class="s14-contacts">
+      <span>Alexandre Machado · Patrimóvel</span>
+      <a href="tel:+5521970327148">+55 21 97032-7148</a>
+      <a href="https://wa.me/5521970327148" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/alexandre.machado.imoveis/" target="_blank" rel="noopener">@alexandre.machado.imoveis</a>
+    </div>
+    <div class="s14-addr">Symphony Residences · Rua Marquês de Abrantes, 55 · Flamengo · Rio de Janeiro</div>
+  </div>
+</div>
+
+</div><!-- /track -->
+</div><!-- /wrap -->
+
+<script>
+let cur=0,tot=14;
+const tr=document.getElementById('tr'),
+      curEl=document.getElementById('cur'),
+      pb=document.getElementById('pb'),
+      nb=document.getElementById('nb'),
+      dc=document.getElementById('dots');
+
+for(let i=0;i<tot;i++){
+  const d=document.createElement('button');
+  d.className='dot'+(i===0?' on':'');
+  d.setAttribute('aria-label','Slide '+(i+1));
+  d.onclick=()=>goTo(i);
+  dc.appendChild(d);
+}
+
+function goTo(n){
+  if(n<0||n>=tot)return;
+  cur=n;
+  tr.style.transform=`translateX(-${cur*100}vw)`;
+  curEl.textContent=cur+1;
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+  pb.disabled=cur===0;
+  nb.disabled=cur===tot-1;
+  document.querySelectorAll('.slide')[cur].scrollTop=0;
+}
+function go(d){goTo(cur+d);}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')go(1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(-1);
+});
+
+let tx=0,ty=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>45)go(dx<0?1:-1);
+},{passive:true});
+
+goTo(0);
+</script>
+</body>
+</html>
